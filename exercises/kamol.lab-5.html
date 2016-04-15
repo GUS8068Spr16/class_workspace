@@ -1,8 +1,35 @@
 <html> 
-var xhr = new XMLhttp://burnsr77.github.io/GH_demo/PACo.geojson();
-var APIresponse = xhr.responseText
-JSON.parse(xhr.responseText);
+<html>
+
+<head>
+
+<title> Toronto, ON, Canada </title>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+</head>
+
+<style>
+body{background:#dbdbdb; 
+font-family: cambria;
+font-size:28px;}
+</style>
+
+<body>
+  <script>
+  var xhr = new XMLHttpRequest();
+  var URL = http://burnsr77.github.io/GH_demo/PACo.geojson
+  xhr open ("Get", URL, true);
+  xhr.send();
+  var APIresponse = xhr.responseText
+  JSON.parse(xhr.responseText);
+    
+  </script>
+
 <script src="reqwest.min.js"></script>
 <script src="Leaflet.Instagram/dist/Leaflet.Instagram.js"></script> 
 L.instagram(“https://api.instagram.com/v1/media/search?lat=40.0237&lng=-75.1723&access_token=[ACCESS_TOKEN]”).addTo(map);
+
+</body>
+
 </html>

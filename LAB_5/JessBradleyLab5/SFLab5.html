@@ -28,7 +28,7 @@ function onEachFeature(feature, layer) {
 			}
 	}
 var layer = new L.StamenTileLayer("toner");
-var map = L.map('map').setView(37.7482737, -122.5012692,15);
+var map = L.map('map').setView([37.7482737, -122.5012692],15);
 var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38';
 var url = "https://api.instagram.com/v1/media/search?lat=37.767561&lng&lng=-119.489696&distance=5000&access_token="+at;
 L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.jpg',

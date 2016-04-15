@@ -6,16 +6,22 @@
 <title> Toronto, ON, Canada </title>
 
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<link rel="stylesheet" href="Leaflet.Instagram/dist/Leaflet.Instagram.css"/>  
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 </head>
 
 <style>
-body{background:#dbdbdb; 
-font-family: cambria;
-font-size:28px;}
+  body{background:#dbdbdb; 
+  font-family: cambria;
+  font-size:28px;}
 </style>
 
 <body>
+  <center>
+	Instagram Posts Around The Eiffel Tower
+	<div id="map" style="height:700px; width:1200px"></div>
+	<center>
+	  <script src="http://tue83532spr16.github.io/reqwest.min.js"></script>
   <script>
   var xhr = new XMLHttpRequest();
   var URL = http://burnsr77.github.io/GH_demo/PACo.geojson

@@ -32,7 +32,6 @@
  		var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38'; 
  		var url = "https://api.instagram.com/v1/media/search?lat=32.0723954&lng=-81.0954587&access_token="+at;
 		
-		<script>
 		var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 		});
@@ -45,8 +44,7 @@
 
 		map.addLayer(layer);
 		L.instagram(url).addTo(map); 
-		</script>
-		
+
 	</script>
 </body>
 </html>

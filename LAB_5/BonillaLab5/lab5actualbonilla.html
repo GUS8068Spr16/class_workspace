@@ -34,11 +34,10 @@
 			var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38'; 
 			var url = "https://api.instagram.com/v1/media/search?lat=40.758899&lng=-73.9873197&access_token="+at;
 	 
-			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+			L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
 				{   
-					attribution: 'Map data Â© <a href="http://openstreetmap.org">OpenStreetMap</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',   
-					maxZoom: 17,   
-					minZoom: 14 
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+					zoom: 15,   
 				}).addTo(map); 
 		L.instagram(url).addTo(map); 
 	</script>

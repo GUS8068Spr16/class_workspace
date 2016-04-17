@@ -27,17 +27,15 @@
 
 		<div id='map' style="height:800px; width:1000px"></div>
 		
-		var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 				});
 
 			var map = L.map('map', {
-  			scrollWheelZoom: false,
   			center: [40.758899, -73.9873197],
   			zoom: 15
 			});
 		map.addLayer(layer);
-		
 		
 		<script src="http://gus8068spr16.github.io/reqwest.min.js"></script> 
 		<script src="http://gus8068spr16.github.io/Leaflet.Instagram/dist/Leaflet.Instagram.js"></script> 

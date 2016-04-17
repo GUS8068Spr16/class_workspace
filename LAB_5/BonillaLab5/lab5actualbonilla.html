@@ -34,14 +34,15 @@
  		var url = "https://api.instagram.com/v1/media/search?lat=32.0723954&lng=-81.0954587&access_token="+at;
 		
 		var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-			});
+  		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+		});
 
-			var map = L.map('map', {
-  			center: [40.758899, -73.9873197],
-  			zoom: 15
-			});
-		}).addTo(map);L.instagram(url).addTo(map); 
+		var map = L.map('map', {
+  		scrollWheelZoom: false,
+  		center: [40.758899, -73.9873197],
+  		zoom: 15
+		});
+
 		map.addLayer(layer);
 		
 	</script>

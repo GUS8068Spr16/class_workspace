@@ -14,6 +14,7 @@ body {
 </head>
 <body> 
 <center><h><i><font size= "16" color="white">GOBBLINS,GHOULS & INSTAGRAM FOOLS IN SAVANNAH</i></h1></center>
+alert("Those who dare enter this site, BEWARE! Thy soul might never be the same after peering into the realm of the otherworld, the kingdom of the dead.");
 
   
 <div id='map' style="height:500px; width:600px; border:2.5px solid #000000;"> 
@@ -26,9 +27,7 @@ var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		
 	}).addTo(map);L.instagram(url).addTo(map); 
 	map.addLayer(layer);
-	
-	alert("Those who dare enter this site, BEWARE! Thy soul might never be the same after peering into the realm of the otherworld, the kingdom of the dead.");
-function onEachFeature(feature, layer) {
+	function onEachFeature(feature, layer) {
 	popupOptions = {maxWidth:260};
 	if (feature.properties && feautre.properties.photo)
 			{

@@ -31,9 +31,8 @@ L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png',
 }
 ).addTo(map);
 	L.instagram(url).addTo(map);
-	L.geoJson(OceanBeachrunroute, {
-			onEachFeature: onEachFeature
-					}).addto(map);
+	L.geoJson(runroute).addto(map);
+	
 </script>
 </body>
 </html>

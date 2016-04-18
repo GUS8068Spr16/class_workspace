@@ -25,17 +25,16 @@
 	var url = "https://api.instagram.com/v1/media/search?lat=37.7482737&lng&lng=-122.5012692&distance=5000&access_token="+at;
 	var mystyle = {
 		"color": "#32f248",
-    "weight": 5,
-    "opacity": 0.65
+    	"weight": 5,
+    	"opacity": 0.65
 	};
 	L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
 			attribution:'Map tiles<a href="http://maps.stamen.com/">Stamen Design</a>, Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>',
 			maxZoom: 19,
-			minZoom: 7
-	}).addTo(map);
+			minZoom: 7}).addTo(map);
 	L.instagram(url).addTo(map);
 	L.geoJson(runroute, {
-    style: myStyle
+    style: mystyle
 	}).addTo(map);
 	
 </script>

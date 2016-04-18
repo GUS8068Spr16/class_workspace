@@ -17,21 +17,26 @@
 
 <script>
 
-alert("San Francisco is known for the experiencing a beautiful sunset while running along the ocean. I hope that some of the Instagram photos reflect that. I used to run this route every day with my dog. It's a bit nostalgic and I hope you enjoy it.");
+	alert("San Francisco is known for the experiencing a beautiful sunset while running along the ocean. I hope that some of the Instagram photos reflect that. I used to run this route every day with my dog. It's a bit nostalgic and I hope you enjoy it.");
 
-var layer = new L.StamenTileLayer("toner");
-var map = L.map('map').setView([37.7482737, -122.5012692],15);
-var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38';
-var url = "https://api.instagram.com/v1/media/search?lat=37.7482737&lng&lng=-122.5012692&distance=5000&access_token="+at;
-L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png',
-{
+	var layer = new L.StamenTileLayer("toner");
+	var map = L.map('map').setView([37.7482737, -122.5012692],15);
+	var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38';
+	var url = "https://api.instagram.com/v1/media/search?lat=37.7482737&lng&lng=-122.5012692&distance=5000&access_token="+at;
+	var mystyle = {
+		"color": "#32f248",
+    "weight": 5,
+    "opacity": 0.65
+	};
+	L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
 			attribution:'Map tiles<a href="http://maps.stamen.com/">Stamen Design</a>, Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>',
 			maxZoom: 19,
 			minZoom: 7
-}
-).addTo(map);
+	}).addTo(map);
 	L.instagram(url).addTo(map);
-	L.geoJson(runroute).addTo(map);
+	L.geoJson(runroute, {
+    style: myStyle
+	}).addTo(map);
 	
 </script>
 </body>

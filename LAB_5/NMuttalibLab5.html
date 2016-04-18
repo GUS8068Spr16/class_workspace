@@ -1,0 +1,37 @@
+<html>
+<head>  
+	<title>Instagram Posts Around Washington DC</title>  
+	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>  
+	<link rel="stylesheet" href="Leaflet.Instagram/dist/Leaflet.Instagram.css"/>  
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>  
+
+</head>
+
+	<style>body{background:#8A9999; font-size: 45; font-color: #484A4A,}</style>
+
+<body> 
+
+	
+	<center>
+	Instagram Posts Around Washington DC
+	<div id="map" style="height:80%; width:100%"></div>
+	<center>
+	
+	<script src="http://gus8068spr16.github.io/reqwest.min.js"></script> 
+	<script src="http://gus8068spr16.github.io/Leaflet.Instagram/dist/Leaflet.Instagram.js"></script> 
+	<script> 
+		var map = L.map('map').setView([38.9072, -77.0369], 16); 
+		var at = '256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38'; 
+		var url = "https://api.instagram.com/v1/media/search?lat=38.9072&lng=-77.0369&access_token="+at;
+ 
+		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+			{   
+				attribution: 'Map data Â© <a href="http://openstreetmap.org">OpenStreetMap</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',   
+				maxZoom: 19,   
+				minZoom: 15 
+			}).addTo(map); 
+		L.instagram(url).addTo(map); 
+	</script>
+ </body>
+ </html>

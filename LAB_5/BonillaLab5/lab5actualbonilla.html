@@ -19,11 +19,12 @@
 </head>
 <body> 
 	
-
+// page text 
 	<center>
 	<font face="Josefin Sans" size="400" color="#FFFFFF">#timessquare</font> 
 	<br><font face="Poiret One" size="200" color="#FFFFFF">Geotagged Instagram posts.</font><br><br>
-
+	
+// map boundaries
 <div id='map' style="height:800px; width:1000px"></div>
 			
 <script src="http://gus8068spr16.github.io/reqwest.min.js"></script> 
@@ -42,7 +43,7 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
 	}).addTo(map); 
 	L.instagram(url).addTo(map); 
 	
-// add GeoJSON layer to the map once file is loaded
+// GeoJSON layer 
 	function onEachFeature(feature, layer) {
     		if (feature.properties && feature.properties.Name) {
         	layer.bindPopup(feature.properties.Name + "<br>" + feature.properties.img + "<br>" + feature.properties.Caption);

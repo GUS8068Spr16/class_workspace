@@ -41,6 +41,46 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
 	minZoom: 14 
 	}).addTo(map); 
 	L.instagram(url).addTo(map); 
+	
+// add GeoJSON layer to the map once file is loaded
+	function onEachFeature(feature, layer) {
+    		if (feature.properties && feature.properties.Name) {
+        	layer.bindPopup(feature.properties.Name + "<br>" + feature.properties.img + "<br>" + feature.properties.Caption);
+	}
+	}
+	var geoJsonFeature = [
+	{"type": "FeatureCollection",
+  		"features": [
+    		{"type": "Feature",
+      			"properties": {
+        		"Name": "<center><strong>CITC  | Center City West</strong></center>",
+        		"img": "<center><img src='http://i.imgur.com/QiYUVIn.jpg' height=200 width=300/></center>",
+        		"Caption": "The Comcast Innovation and Technology Center is a skyscraper under construction. The 59-floor building, with a height of 342 m, will be the tallest building in the Western Hemisphere outside of Manhattan and Chicago. It will likely be complete by early 2018.",
+        		"markercolor": "#ff8888"
+        		},
+      		"geometry": {
+        		"type": "Point",
+        		"coordinates": [-73.9866959, 40.7532639]
+      		}
+    	},
+    		{"type": "Feature",
+      			"properties": {
+        		"Name": "<center><strong>SLS  | Avenue of the Arts</strong></center>",
+        		"img": "<center><img src='http://i.imgur.com/mcIz9N9.jpg' height=200 width=300/></center>",
+        		"Caption": "Commissioned by Dranoff Properties, the 47 story tower broke ground in Spring of 2015. It will feature 125 condos and 150 hotel rooms, combining a four or five star hotel with uber-luxe condos and entertainment space.",
+        		"markerColor": "#FFFFFF"
+        		},
+      		"geometry": {
+        		"type": "Point",
+        		"coordinates": [-73.9863487, 40.7556212]
+      		}
+    	},
+    ]
+}];
+L.geoJson(geoJsonFeature, {
+ 	onEachFeature: onEachFeature
+  				 
+ }).addTo(map);
 </script>
 </body>
 </html>

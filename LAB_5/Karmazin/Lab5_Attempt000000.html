@@ -51,6 +51,29 @@
  		L.instagram(link).addTo(map); 
  		L.instagram('https://api.instagram.com/v1/media/search?lat=39.980929&lng=-75.156696&access_token=256164975.c9600e9.7a9aeb07284e4220bdddeaddcbedee38')
  		.addTo(map) ;
+ 		
+ 		
+ 			var temple = [{
+    			"type": "Feature",
+    			"properties": {"boundary"},
+			"geometry": {
+			"type": "Polygon",
+        		"coordinates": [[
+        		[39.986911, -75.161040],
+        		[39.976464, -75.163391],
+            		[39.974754, -75.150066],
+            		[39.985162, -75.147877],
+        	]]
+    		}
+		}];
+
+L.geoJson(temple, {
+    style: function(feature) {
+        switch (feature.properties.boundary) {
+            case 'boundary':   return {color: "red"};
+        }
+    }
+}).addTo('map');
 		
 	
         </script>

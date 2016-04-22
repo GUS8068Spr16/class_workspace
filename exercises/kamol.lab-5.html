@@ -26,18 +26,17 @@
 	  <script src="http://gus8068spr16.github.io/reqwest.min.js"></script>
 	  <script src="http://gus8068spr16.github.io/Leaflet.Instagram/dist/Leaflet.Instagram.js"></script> 
   <script>
-  var xhr = new XMLHttpRequest();
-  var URL = "http://burnsr77.github.io/GH_demo/PACo.geojson";
+  var xhr = L.map('map').setView([23.731569, 90.392463], 18);
+  var URL = "https://api.instagram.com/v1/media/search?lat=48.8582641&lng=2.2923184&access_token="+at;
   xhr open ("Get", URL, true);
-  xhr.send();
-  var APIresponse = xhr.responseText;
-  var jsonResponse = JSON.parse(xhr.responseText)
-  docment.getElementById('api_results').innerHTML = ;
-    
-  </script>
 
-<script src="reqwest.min.js"></script>
-<script src="Leaflet.Instagram/dist/Leaflet.Instagram.js"></script> 
+  L.titleLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  	{
+  		attribution: 'Map data Â© <a href="http://openstreetmap.org">OpenStreetMap</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>', 
+       		maxZoom: 16,
+       		minZoom: 12
+  	}).addTo(map);
+  </script>
 
 </body>
 

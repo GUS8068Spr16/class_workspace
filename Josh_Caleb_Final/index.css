@@ -1,0 +1,17 @@
+
+/* Start of Social bar at bottom of page styling */
+
+ul.social{
+    overflow: auto;
+	text-align: center;
+}
+ 
+ul.social li {
+    list-style-type: none;
+    display:inline-block;
+	
+}
+
+ul li a i:hover {
+    opacity: .7;
+}

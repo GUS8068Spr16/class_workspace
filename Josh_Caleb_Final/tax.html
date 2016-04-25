@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://www.qwertyismypw.com" />
+
+	<meta name="description" content="Home page of Josh and Caleb's website">
+	<meta name="keywords" content="Josh Sonntag, josh sonntag, web map, web mapping, bike thefts, tax maps, philadelphia, temple">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> <!-- link to Bootstrap CSS File -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" /> <!-- link LEAFLET CSS File -->
+	<link rel="stylesheet" href="font/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/thefts.css"> <!-- MY CSS File -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script> <!-- link LEAFLET JS File -->
+	
+	<title>Home - Josh and Caleb</title>
+	
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.17.0/mapbox-gl.css' rel='stylesheet'>
+	
+</head>
+
+<body>
+	<!-- main content -->
+	
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+		
+		<!-- Logo -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="index.html" class="navbar-brand">Josh and Caleb</a>
+		</div>
+		
+		
+		
+		<!-- menu items -->
+		
+		<div class="collapse navbar-collapse" id="mainNavBar">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Home</a><li>
+				
+		<!-- dropdown menu -->		
+				<li class="active" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							
+							<li class="active"><a href="bikes.html">JavaScript Map - Bike Thefts within Philadelphia</a></li>
+							<li><a href="tax.html">Philadelphia Tax Abatements Map</a></li>
+							
+						</ul>
+				</li>
+				
+			</ul>
+			
+		</div>
+		 
+	</nav>
+	<div class="container">
+			<!-- Page Header -->
+	
+	       <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">10-year Residential Tax Abatements in Philadelphia
+                    <small></small>
+                </h2>
+			 </div>
+        </div>
+		
+	<div id='map' style='width: 1200px; height: 900px;' />	
+	  <script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoiY2FsZWJuZiIsImEiOiJhX1hFR21rIn0.aDaQeZzI9vR6sMc8VBRMZQ';
+		var map = new mapboxgl.Map({
+		  container: 'map',
+		  style: 'mapbox://styles/calebnf/cinag3u9m00m4cxnhjykdumkj', 
+		  center: [-75.1341, 39.9981], 
+		  zoom: 11
+		});
+	  </script>
+	  
+	 
+	<button onclick = 'calebMap()'>Travel the interwebz to Caleb's awesome Tax Map!</button>
+
+	<br><br>
+	
+	<iframe src = 'https://api.mapbox.com/styles/v1/calebnf/cinag3u9m00m4cxnhjykdumkj.html?title=true&access_token=pk.eyJ1IjoiY2FsZWJuZiIsImEiOiJhX1hFR21rIn0.aDaQeZzI9vR6sMc8VBRMZQ#10.96/39.9997/-75.1169' width = '1200' height = '900'>
+	</iframe>
+
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<script type="text/javascript">
+	
+	function calebMap(){
+		window.open("https://api.mapbox.com/styles/v1/calebnf/cinag3u9m00m4cxnhjykdumkj.html?title=true&access_token=pk.eyJ1IjoiY2FsZWJuZiIsImEiOiJhX1hFR21rIn0.aDaQeZzI9vR6sMc8VBRMZQ#10.96/39.9997/-75.1169", '_blank');
+		}
+
+	</script>
+	
+	<footer>
+           
+		<p class ="text-center">We came<br><br>We saw<br><br>We mapped</p>
+           
+	</footer>
+	</body>
+	</html>

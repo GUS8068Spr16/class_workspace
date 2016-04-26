@@ -32,8 +32,8 @@
 <!--Start GeoJSON file input-->
 <script type="text/javascript" src="counties.js"></script>
 <!--End GeoJSON file input-->
+<script type="text/javascript">
 
-<script>
 // Add basemap
 var map = L.map('map').setView([40.8444034, -77.6937927], 8); 
 	
@@ -75,7 +75,5 @@ var GeoJSONLayer = L.GeoJSON(statesData, {style: myStyle}).addTo(map);
 		}).addTo(map);
 		map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
-
-</script>
 </body>
 </html>

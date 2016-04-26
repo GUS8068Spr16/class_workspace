@@ -30,7 +30,7 @@
 <!--Leaflet JavaScript file-->
 
 <!--Start GeoJSON file input-->
-<script type="text/javascript" src="counties3.geojson"></script>
+<script type="text/javascript" src="PACo.geojson"></script>
 <!--End GeoJSON file input-->
 
 <script>
@@ -46,12 +46,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		}).addTo(map);
 
 L.geoJson(statesData).addTo(map);
-
-//  Read geoJSON data and create map
-        geojson = L.geoJson(statesData, {
-            style: style,
-            onEachFeature: onEachFeature
-        }).addTo(map);
 
 </script>
 </body>

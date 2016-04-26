@@ -44,7 +44,7 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
 }).addTo(map); 
 
 //  Read geoJSON data and create map
-        geojson = L.geoJson(counties, {
+        geojson = L.geoJson(statesData, {
             style: style,
             onEachFeature: onEachFeature
         }).addTo(map);

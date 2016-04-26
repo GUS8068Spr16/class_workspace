@@ -45,6 +45,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 			id: 'mapbox.light'
 		}).addTo(map);
 
+L.geoJson(statesData).addTo(map);
+
 //  Read geoJSON data and create map
         geojson = L.geoJson(statesData, {
             style: style,

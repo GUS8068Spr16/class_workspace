@@ -59,16 +59,15 @@ var GeoJSONLayer = L.GeoJSON(statesData, {style: myStyle}).addTo(map);
 			                  '#FFEDA0';
 		}
 		
-	function style(feature) {
-			return {
-				weight: 2,
-				opacity: 1,
-				color: 'white',
-				dashArray: '3',
-				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.POVRATE)
-			};
-		}
+	Function myStyle(feature) {
+		return {
+		fillColor: color(feature.properties.POVRATE),
+		weight: 1,
+		opacity: 1,      
+		color: 'white',      
+		fillOpacity: 0.85   	 
+		};
+	}
 		geojson = L.geoJson(statesData, {
 			style: style,
 			onEachFeature: onEachFeature

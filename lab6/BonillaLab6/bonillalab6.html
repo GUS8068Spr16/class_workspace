@@ -10,7 +10,6 @@
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 	<!--Google Font defined in the CSS style sheet-->	
 	
-
 <style>
 	body {
 	background-image: url("http://i.imgur.com/04U3Tbt.jpg");
@@ -21,7 +20,7 @@
 
 </head>
 <body> 
-	
+
 	<center>
 	<font face="Josefin Sans" size="400" color="#FFFFFF">Lorem ipsum.</font> 
 	<br><font face="Poiret One" size="200" color="#FFFFFF">Lorem ipsum.</font><br><br>
@@ -29,10 +28,8 @@
 <div id='map' style="height:700px; width:1000px"></div>
 	
 <script>
-var map = L.map('mapid').setView([51.505, -0.09], 13);
-
-var layer = L.tileLayer('https://vector.mapzen.com/osm/{layers}/{z}/{x}/{y}.{format}?api_key=vector-tiles-xxxxxxx', {
-  attribution: '<a href="https://www.mapzen.com/rights">Attribution.</a>. Data &copy;<a href="https://openstreetmap.org/copyright">OSM</a> contributors.'
+var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
 
 var map = L.map('map', {
@@ -40,6 +37,7 @@ var map = L.map('map', {
   center: [40.7127837, -74.0059413],
   zoom: 6
 });
+
 map.addLayer(layer);
 </script>
 </body>

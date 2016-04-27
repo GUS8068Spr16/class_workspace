@@ -12,7 +12,7 @@
       <div id='map' style="height:900px; width:1200px"></div>
     </center>
     
-    <script src="http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
+    
     <script>
       var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
       var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -35,8 +35,11 @@
 	    L.geoJson('counties', {
 	    onEachFeature: onEachFeature
 	    }).addTo(map);
-      
+	  
+	
     </script>
+    <script src = "http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
+    var counties = L.GeoJSON(counties).addTop('map')
   </body>
   
 </html>

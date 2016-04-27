@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-   <script src="gus8068Spr16.github.io/lab6/KarmazinLab6/counties.geojson" type="text/javascript"></script>
+    <script src="https://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js" type="text/javascript"></script>
   </head>
   
   <body>
@@ -13,7 +13,7 @@
     </center>
 
     
-    <script type="text/javascript">
+    <script>
       var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
       var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
       return s.toLowerCase();
@@ -33,7 +33,7 @@
 	    .addLayer(basemap)
 	    .setView([40.917956, -77.552434], 8);
 	
-	var counties = L.geoJson('counties').addTo('map')   
+	L.geoJson(counties).addTo(map);   
 	  
 	
     </script>

@@ -11,6 +11,30 @@
       <div id='map' style="height:600px; width:900px"></div>
     </center>
     
+    <script>
+      var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
+      var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
+      return s.toLowerCase();
+      });
+      
+      
+      
+      
+      var basemap = L.tileLayer(url, {
+      subdomains: ['','a.','b.','c.','d.'],
+      minZoom: 0,
+      maxZoom: 17,
+      type: 'png',  
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,  under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
+      });
+      var map = L.map('map')
+	    .addLayer(basemap)
+	    .setView([40.917956, -77.552434], 8)
+	    L.geoJson(myGeoJSON, {
+	    onEachFeature: onEachFeature
+	    }).addTo(map);
+      
+    </script>
   </body>
   
 </html>

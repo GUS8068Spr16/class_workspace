@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+    <script src="http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
   </head>
   
   <body>
@@ -32,14 +32,10 @@
       var map = L.map('map')
 	    .addLayer(basemap)
 	    .setView([40.917956, -77.552434], 8)
-	    L.geoJson('counties', {
-	    onEachFeature: onEachFeature
-	    }).addTo(map);
+	    L.geoJson('counties').addTo(map);
 	  
 	
     </script>
-    <script src = "http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
-    var counties = L.geoJson(geojsonFeature).addTo(map);
   </body>
   
 </html>

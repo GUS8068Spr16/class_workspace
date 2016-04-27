@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+   
   </head>
   
   <body>
@@ -12,7 +12,8 @@
       <div id='map' style="height:900px; width:1200px"></div>
     </center>
     
-    
+    <script src="http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
+    <link rel="stylesheet" href="http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js" />
     <script>
       var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
       var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -29,11 +30,13 @@
       type: 'png',  
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,  under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
       });
-       src = "http://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"
       var map = L.map('map')
 	    .addLayer(basemap)
-	    .setView([40.917956, -77.552434], 8)
+	    .setView([40.917956, -77.552434], 8);
 	    L.geoJson('counties').addTo(map);
+	    
+	var mylayer = L.geoJson(counties).addTo(map);
+	mylayer.addData(counties)
 	  
 	
     </script>

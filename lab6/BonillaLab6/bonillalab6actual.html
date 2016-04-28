@@ -51,7 +51,7 @@
 </head>
 <body> 
 <center>
-<font face="Oswald" size="400" color="#000000">Mapping Poverty in Pennsylvania3</font> 
+<font face="Oswald" size="400" color="#000000">Mapping Poverty in Pennsylvania</font> 
 <br><font face="Oxygen" size="200" color="#000000">Poverty rates in every PA county, in one map.</font><br><br>
 		
 	<div id="map"></div>
@@ -83,13 +83,13 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
 
-		var dark   = L.tileLayer(mbUrl, {id: 'mapbox.dark', attribution: mbAttr}),
-		    light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
+		var light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+		    dark   = L.tileLayer(mbUrl, {id: 'mapbox.dark', attribution: mbAttr});
 
 		var map = L.map('map', {
 			center: [40.8444034, -77.6937927],
 			zoom: 7,
-			layers: [dark, light, org]
+			layers: [light, dark, org]
 		});
 	
 		var baseMaps = {

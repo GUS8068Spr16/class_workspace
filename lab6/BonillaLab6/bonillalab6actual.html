@@ -43,13 +43,11 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
 	
 	// get color depending on poverty rate value
 		function getColor(d) {
-			return d > 20.3 ? '#800026' :
-			       d > 16.3  ? '#BD0026' :
-			       d > 14  ? '#E31A1C' :
-			       d > 12.1  ? '#FC4E2A' :
-			       d > 10.6   ? '#FD8D3C' :
-			       d > 7.1   ? '#FEB24C' :
-			       d > 5.9   ? '#FED976' :
+			return d > 17.2 ? '#800026' :
+			       d > 14.5  ? '#BD0026' :
+			       d > 11.8  ? '#E31A1C' :
+			       d > 8.9  ? '#FC4E2A' :
+			       d > 5.9   ? '#FD8D3C' :
 			                  '#FFEDA0';
 		}
 

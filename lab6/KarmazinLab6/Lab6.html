@@ -79,6 +79,16 @@
     			d > 64874 ? '#74c476' :
     			d > 41218 ? '#bae4b3' :
     			d > 0 ? '#edf8e9' } ;
+    			
+    	function style(feature) { return
+    				{ weight:2,
+    				opacity: 1,
+    				color: 'gray',
+    				fillOpacity: 0.7,
+    				fillColor: getColor(feature.properties.VoteTotal)
+    				}} ;
+    				
+    	
     				
     
     

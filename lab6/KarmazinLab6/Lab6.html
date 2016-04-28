@@ -1,8 +1,14 @@
 <html>
   <head>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<title>2016 PA Primary Results Map</title>	  	
+    	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    	
   </head>
+  
+  <style>
+  	body { background-color: #bdbdbd}
+  	;
+  </style>
   
   <body>
     <center>
@@ -11,8 +17,28 @@
       <div id='map' style="height:900px; width:1200px"></div>
     </center>
 
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<script type="text/javascript" src="counties.js"></script>
+	
     
     <script>
+    
+    var cities = new L.LayerGroup();
+    L.marker([40.596172, -75.472072]).bindPopup('Allentown'<br>'Population 119355').addTo(cities);
+    L.marker([40.62665, -75.367908]).bindPopup('Bethlehem'<br>'Population 76283').addTo(cities);
+    L.marker([42.116503, -80.073055]).bindPopup('Erie'<br>'Population 101513').addTo(cities);
+    L.marker([40.264032, -76.880679]).bindPopup('Harrisburg'<br>'Population 50144').addTo(cities);
+    L.marker([40.042144, -76.301009]).bindPopup('Lancaster'<br>'Population 60492').addTo(cities);
+    L.marker([40.143491, -74.85497]).bindPopup('Levittown'<br>'Population 52075').addTo(cities);
+    L.marker([40.007728, -75.133916]).bindPopup('Philadelphia'<br>'Population 1548598').addTo(cities);
+    L.marker([40.439485, -79.976316]).bindPopup('Pittsburgh'<br>'Population 304633').addTo(cities);
+    L.marker([40.339938, -75.926615]).bindPopup('Reading'<br>'Population 89019').addTo(cities);
+    L.marker([41.404399, -75.664916]).bindPopup('Scranton'<br>'Population 75004').addTo(cities);
+    
+    
+    
+    
+    
       var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
       var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
       return s.toLowerCase();
@@ -29,7 +55,7 @@
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,  under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
       });
       var map = L.map('map')
-	    .addLayer(basemap)
+	    .addLayer(basemap, cities)
 	    .setView([40.917956, -77.552434], 8);
 	    
 	  

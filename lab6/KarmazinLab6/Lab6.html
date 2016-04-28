@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="https://gus8068Spr16.github.io/lab6/KarmazinLab6/counties.js"></script>
+    <script src="jquery-2.1.1.min.js"></script>
   </head>
   
   <body>
@@ -32,6 +33,8 @@
       var map = L.map('map')
 	    .addLayer(basemap)
 	    .setView([40.917956, -77.552434], 8);
+	    
+	    
 	
 	var counties = L.geoJson(FeatureCollection).addTo(map);   
 	  

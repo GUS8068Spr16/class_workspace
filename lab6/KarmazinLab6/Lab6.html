@@ -65,17 +65,20 @@
     			this.update();
     			return this._div};
     			
-    	info.update = function (Dem)
-    			{this._div.innerHTML = '<h1>Democrat Party Results</h1>' + (Dem ?
-    				'<b>' + Dem.County + '</b><br />' + Dem.DemWin + ' votes '
+    	info.update = function (Vote)
+    			{this._div.innerHTML = '<h1>County Results</h1>' + (Vote ?
+    				'<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' votes '
     				: 'Float over a County'); };
     	info.addTo(map);
     	
     	//Chlorpleths//
     	
     	function getColor(d)
-    		{ return d = 'Hillary' ? '#08519c' :
-    			d = 'Bernie' ? '#bdd7e7'}: ;
+    		{ return d > 280132 ? '#006d2c' :
+    			d > 135184 ? '#31a354' :
+    			d > 64874 ? '#74c476' :
+    			d > 41218 ? '#bae4b3' :
+    			d > 0 ? '#edf8e9' ; }
     				
     
     

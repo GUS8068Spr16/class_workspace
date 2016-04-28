@@ -40,6 +40,23 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 	maxZoom: 9,  
 	}).addTo(map); 
+	
+	// control that shows state info on hover
+	var info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+		'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+		: 'Hover over a state');
+	};
+
+	info.addTo(map);
 		
 	L.geoJson(counties_id).addTo(map);
 </script>

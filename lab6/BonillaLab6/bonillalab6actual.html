@@ -59,7 +59,7 @@
 	
 
 		<center>
-		<font face="Josefin Sans" size="400" color="#FFFFFF">Lorem24.</font> 
+		<font face="Josefin Sans" size="400" color="#FFFFFF">Lorem25.</font> 
 		<br><font face="Poiret One" size="200" color="#FFFFFF">Lorem ipsum.</font><br><br>
 		
 	<div id="map"></div>
@@ -74,11 +74,15 @@
 
 	<script>
 	// Add basemap
-	var dark = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', 
-			{   
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    	    light   = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',{
-  		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
+	    var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+
+	    var dark   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+	        light  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+
   		
   	var map = L.map('map', {
     	center: [40.8444034, -77.6937927],

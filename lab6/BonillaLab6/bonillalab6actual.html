@@ -59,7 +59,7 @@
 	
 
 		<center>
-		<font face="Josefin Sans" size="400" color="#FFFFFF">Lorem25.</font> 
+		<font face="Josefin Sans" size="400" color="#FFFFFF">Lorem26.</font> 
 		<br><font face="Poiret One" size="200" color="#FFFFFF">Lorem ipsum.</font><br><br>
 		
 	<div id="map"></div>
@@ -74,6 +74,12 @@
 
 	<script>
 	// Add basemap
+	var cities = new L.LayerGroup();
+
+		L.marker([39.9516964, -75.1632261]).bindPopup('Shared Prosperity Philadelphia').addTo(cities),
+		L.marker([40.262405, -76.8799797]).bindPopup('PA Head Start').addTo(cities),
+		L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+		L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
 
 	    var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -87,7 +93,7 @@
   	var map = L.map('map', {
     	center: [40.8444034, -77.6937927],
 	zoom: 7,
-    	layers: [dark, light]
+    	layers: [dark, light, cities]
 	});
 	
 	var baseMaps = {
@@ -95,7 +101,11 @@
     	"Light": light
 	};
 	
-	L.control.layers(baseMaps).addTo(map);
+	var overlays = {
+			"Cities": cities
+		};
+	
+	L.control.layers(baseMaps, overlays).addTo(map);
 		
 		// shows state info on hover
 			var info = L.control();

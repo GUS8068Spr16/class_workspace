@@ -51,7 +51,7 @@
 </head>
 <body> 
 <center>
-<font face="Oswald" size="400" color="#000000">Mapping Poverty in Pennsylvania</font> 
+<font face="Oswald" size="400" color="#000000">Mapping Poverty in Pennsylvania2</font> 
 <br><font face="Oxygen" size="200" color="#000000">Poverty rates in every PA county, in one map.</font><br><br>
 		
 	<div id="map"></div>
@@ -178,7 +178,7 @@
 			});
 		}
 	
-		counties_id = L.geoJson(counties_id, {
+		geojson = L.geoJson(counties_id, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);

@@ -81,7 +81,7 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
 
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (props ?
-				'<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+				'<b>' + props.NAME + '</b><br />' + props.POVRATE + ' people / mi<sup>2</sup>'
 				: 'Hover over a state');
 		};
 

@@ -87,8 +87,20 @@
     				color:'gray',
     				dashArray: '2',
     				fillOpacity:0.7,
-    				
     				};} ;
+    				
+    	function highlightFeature(e) {
+    		var layer = e.target;
+    		
+    		layer.setStyle({
+    			weight: 5,
+    			color: '#f7f4f9',
+    			dashArray: '',
+    			fillOpacity: 0.7
+    		});
+    		if (!L.Browser.ie && !L.Browser.opera) {
+			layer.bringToFront();
+    	}};
     				
     	
     				

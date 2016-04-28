@@ -18,7 +18,7 @@
 		box-shadow: 0 0 15px rgba(0,0,0,0.2);
 		border-radius: 5px;
 	}
-	.info h1 {
+	.info h4 {
 		margin: 0 0 5px;
 		color: #777;
 		}
@@ -68,7 +68,7 @@
 			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
 
 	
-	var streets = L.tileLayer(Url, {id: 'mapbox.streets', attribution: Attr});
+	var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr});
 	var dark = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
 
 
@@ -92,7 +92,7 @@
     			return this._div};
     			
     	info.update = function (Vote)
-    			{this._div.innerHTML = '<h1>County Results</h1>' + (Vote ?
+    			{this._div.innerHTML = '<h4>County Results</h4>' + (Vote ?
     				'<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' votes '
     				: 'Float over a County'); };
     	info.addTo(map);

@@ -100,7 +100,34 @@
     		});
     		if (!L.Browser.ie && !L.Browser.opera) {
 			layer.bringToFront();
-    	}};
+    		}
+    		info.update(layer.feature.properties);
+    		}
+    		
+    		var counties;
+    		function resetHighlight(e) {
+    			geojson.resetStyle(e.target);
+    			info.update();
+    		}
+    		
+    		function zoomToFeature(e) {
+    			map.fitbounds.(e.target.getBounds());
+    		}
+    		
+    		function onEachFeature(feature, layer) {
+    			layer.on({mouseover: highlightFeature,
+    				mouseout: resetHighlight,
+    				click: zoomToFeature
+    			});
+    		}
+    		
+    		counties = L.geoJson(counties, {
+    			style: style,
+    			onEachFeature: onEachFeature
+    		}).addTo(map);
+    		
+    		
+    	
     				
     	
     				

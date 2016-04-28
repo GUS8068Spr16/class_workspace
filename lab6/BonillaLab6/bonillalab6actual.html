@@ -65,6 +65,14 @@
 <script type="text/javascript" src="counties_id.js"></script>
 
 <script>
+
+var centers = new L.LayerGroup();
+
+		L.marker([39.9516964, -75.1632261]).bindPopup('Shared Prosperity Philadelphia').addTo(centers),
+		L.marker([40.262405, -76.8799797]).bindPopup('PA Head Start').addTo(centers),
+		L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(centers),
+		L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(centers);
+
 // Add basemap
 var map = L.map('map').setView([40.8444034, -77.6937927], 7); 
 

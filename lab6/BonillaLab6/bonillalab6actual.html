@@ -66,10 +66,10 @@
 	
 <script>
 // Add basemap
-var cities = new L.LayerGroup();
+var org = new L.LayerGroup();
 
-	L.marker([39.9516964, -75.1632261]).bindPopup('Shared Prosperity Philadelphia').addTo(cities),
-	L.marker([40.262405, -76.8799797]).bindPopup('PA Head Start').addTo(cities);
+	L.marker([39.9516964, -75.1632261]).bindPopup('Shared Prosperity Philadelphia').addTo(org),
+	L.marker([40.262405, -76.8799797]).bindPopup('PA Head Start').addTo(org);
 
 var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -81,7 +81,7 @@ var light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
 var map = L.map('map', {
 center: [40.8444034, -77.6937927],
 zoom: 7,
-layers: [light, cities]
+layers: [light, org]
 });
 	
 var baseMaps = {
@@ -89,7 +89,7 @@ var baseMaps = {
 };
 	
 var overlays = {
-	"Organizations": cities
+	"Organizations": org
 };
 	
 L.control.layers(baseMaps, overlays).addTo(map);

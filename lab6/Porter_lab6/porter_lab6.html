@@ -1,151 +1,207 @@
 <html>
-<head>	
-	<title>PA counties by income</title>
+<head>  
+	<title>Per Capita Income in PA Counties</title>  
+				
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<!--stylesheet for Leaflet Map elements--> 
+	<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<!--Google Font defined in the CSS style sheet-->	
+	
+
+	<!--Start CSS-->
+	<style>
+		body {
+		background-color: silver
+		}
+		
+		#map {
+			width: 90%;
+			height: 90%;
+		}
+	
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: black;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+	
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+	</style>
 	
 </head>
-	<style>
-		body{background:silver; font-size:28px;}
-	</style>
-<body>
- <center>
-	<h1>PA Counties by Income</h1>
-	<h2>This map shows per capita income in all 67 PA counties</h2>
-	<div id='map' style="height:700px; width:700px"></div>
- </center>
-
-
+<body> 
+<center>
+<font face="Oswald" size="400" color="#000000">Per Capita income in PA counties</font> 
+<br><font face="Oxygen" size="200" color="#000000">Poverty rates in every PA county, in one map.</font><br><br>
+		
+	<div id="map"></div>
+	
 	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	
+	
 	<script type="text/javascript" src="pacounties.js"></script>
 	
 	<script>
 		
-	var hospitals = new L.LayerGroup();
+		var hospitals = new L.LayerGroup();
 		
-	L.marker([39.94408, -75.208878]).addTo(map)
+	L.marker([39.94408, -75.208878])
    	.bindPopup('Alexander Wilson Elementary School').addTo(hospitals);
-	L.marker([39.989227, -75.169495]).addTo(map)
+	L.marker([39.989227, -75.169495])
    	.bindPopup('Anna B. Pratt Elementary School').addTo(hospitals);
-	L.marker([39.941732, -75.226536]).addTo(map)
+	L.marker([39.941732, -75.226536])
    	.bindPopup('Anna H. Shaw Middle School').addTo(hospitals);
-	L.marker([39.979575, -75.110488]).addTo(map)
+	L.marker([39.979575, -75.110488])
    	.bindPopup('Charles Carroll High School').addTo(hospitals);
-	L.marker([39.898484, -75.245735]).addTo(map)
+	L.marker([39.898484, -75.245735])
    	.bindPopup('Communications Technology School').addTo(hospitals);
-	L.marker([39.925162, -75.160021]).addTo(map)
+	L.marker([39.925162, -75.160021])
    	.bindPopup('Edward Bok Technical High School').addTo(hospitals);
-	L.marker([39.994334, -75.142141]).addTo(map)
+	L.marker([39.994334, -75.142141])
    	.bindPopup('Fairhill Elementary School').addTo(hospitals);
-   	
-   		 var Attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		
+		
+		var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
-		
-	varpencil = L.tileLayer(Url, {id: 'mapbox.pencil', attribution: Attr});
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+		var pencil   = L.tileLayer(mbUrl, {id: 'mapbox.pencil', attribution: mbAttr});
+		var map = L.map('map', {
+			center: [40.8444034, -77.6937927],
+			zoom: 7,
+			layers: [pencil, hospitals]
+		});
 	
-    
-    var map = L.map('map', {center: [40.917946, -77.552847],
-    				zoom: 6,
-    				layers: [pencil, hospitals]});
-    				
-    var baseMaps = {"Basemap": pencil,};
-    				
-    var overlay = {'hospitals': hospitals};
-    
-    L.control.layers(baseMaps, overlay).addTo(map);
-    
-    
-    
-    	var info = L.control();
-    	info.onAdd = function (map)
-    			{this._div = L.DomUtil.create('div', 'info');
-    			this.update();
-    			return this._div};
-    			
-    	info.update = function (INC)
-    			{this._div.innerHTML = '<h4>Per Capita Income</h4>' + (INC ?
-    				'<b>' + INC.name + '</b><br />' + INC.name + ' income '
-    				: 'Hover over a County'); };
-    	info.addTo(map);
+		var baseMaps = {
+    			"Basemap": pencil,
+		};
+	
+		var overlays = {
+			"hospitals": hospitals
+		};
+	
+		L.control.layers(baseMaps, overlays).addTo(map);
 		
-	function getColor(d)
-    	       { return d > 10000 ? '#f2f0f7' :
-    			d > 15000 ? '#dadaeb' :
-    			d > 25000 ? '#bcbddc' :
-    			d > 35000 ? '#9e9ac8' :
-    			d > 40000 ? '#756bb1' :
+		// shows state info on hover
+		var info = L.control();
+	
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+	
+		info.update = function (inc) {
+			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (props ?
+				'<b>' + inc.name + '</b><br />' + inc.income + ' percent '
+				: 'Hover over a county');
+		};
+	
+		info.addTo(map);
+		
+		function getColor(d)
+    	   { return d > 10000 ? '#f2f0f7' :
+					d > 15000 ? '#dadaeb' :
+					d > 25000 ? '#bcbddc' :
+					d > 35000 ? '#9e9ac8' :
+					d > 40000 ? '#756bb1' :
     				    '#54278f' ;	}
-    			
-    	function style(feature) { return {
-    				fillColor: getColor(Feature.properties.income), 
-    				weight:2,
-    				opacity: 1,
-    				color:'gray',
-    				dashArray: '2',
-    				fillOpacity:0.8,
-    				};} ;
-    				
-    	function highlightFeature(e) {
-    		var layer = e.target;
-    		
-    		layer.setStyle({
-    			weight: 5,
-    			color: '#f7f4f9',
-    			dashArray: '',
-    			fillOpacity: 0.8
-    		});
-    		
-    		if (!L.Browser.ie && !L.Browser.opera) {
-			layer.bringToFront();
-    		}
-    		
-    		info.update(layer.feature.properties);
-    		}
-    		
-    		var counties;
-    		
-    		function resetHighlight(e) {
-    			geojson.resetStyle(e.target);
-    			info.update();
-    		}
-    		
-    		function zoomToFeature(e) {
-    			map.fitBounds(e.target.getBounds());
-    		}
-    		
-    		function onEachFeature(feature, layer) {
-    			layer.on({mouseover: highlightFeature,
-    				mouseout: resetHighlight,
-    				click: zoomToFeature
-    			});
-    		}
-    		
-    		geojson = L.geoJson(counties, {
-    			style: style,
-    			onEachFeature: onEachFeature
-    		}).addTo(map);
-    		
-    	var legend = L.control({position: 'bottomleft'});
-    	
-    	legend.onAdd = function (map)
-    			{
-    			var div = L.DomUtil.create('div', 'info legend'),
-    			grades = [10000, 15000, 25000, 35000, 40000],
-    			labels = [];
-    			
-    	for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    	}
-    	return div;
-	};
-legend.addTo(map);
-	    
-	  
 	
-    </script>
-  </body>
-  
-</html> 
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(Feature.properties.income)
+			};
+		}
+		
+		function highlightFeature(e) {
+			var layer = e.target;
+	
+			layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+	
+		if (!L.Browser.ie && !L.Browser.opera) {
+			layer.bringToFront();
+		}
+	
+		info.update(layer.feature.properties);
+	}
+	
+		var counties_id;
+		
+		function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+	
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+	
+		function onEachFeature(Feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+	
+		geojson = L.geoJson(pacounties.js, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+			
+		var legend = L.control({position: 'bottomleft'});
+	
+		legend.onAdd = function (map) {
+	
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [5.9, 8.9, 11.8, 14.5, 17.2],
+				labels = [],
+				from, to;
+	
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+	
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+	
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+	
+	legend.addTo(map);
+		
+</script>
+</body>
+</html>

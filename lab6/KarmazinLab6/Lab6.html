@@ -106,7 +106,7 @@
     			
     	info.update = function (Vote)
     			{this._div.innerHTML = '<h4>County Results</h4>' + (Vote ?
-    				'<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' votes ' + '<br />' + '<b>Sanders</b>' +
+    				'<b>' + Vote.County + '</b><br />' + 'Total Votes' + Vote.VoteTotal + '<br />' + '<b>Sanders</b>' +
     				Vote.Bernie + '<br />' + '<b>Clinton</b>' + Vote.Hillary + '<br />' + '<b>Trump</b>' +
     				Vote.Trump + '<br />' + '<b>Cruz</b>' +	Vote.Cruz + '<br />' + '<b>Kasich</b>' + Vote.Kasich
     				: 'Float over a County'); };

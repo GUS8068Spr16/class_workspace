@@ -8,12 +8,12 @@
   <style>
   	body { 	background-color: #4292c6;
   	}
-  	h1 { font-family: Impact;
+  	h1 { font-family: Verdana ;
   		font-size:55px;
   		font-weight: bold;
   		color: #084594;
   	}
-  	h2 { font-family: Impact;
+  	h2 { font-family: Verdana ;
   		font-size: 30px;
   		font-weight: bold;
   		color: #ef3b2c;
@@ -106,7 +106,7 @@
     			
     	info.update = function (Vote)
     			{this._div.innerHTML = '<h4>Votes per County</h4>' + (Vote ?
-    				'<b>' + Vote.County + '</b><br />' + 'Total' + Vote.VoteTotal + '<br />' + '<b>Sanders -- </b>' +
+    				'<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' -- Total' + '<br />' + '<b>Sanders -- </b>' +
     				Vote.Bernie + '<br />' + '<b>Clinton -- </b>' + Vote.Hillary + '<br />' + '<b>Trump -- </b>' +
     				Vote.Trump + '<br />' + '<b>Cruz -- </b>' +	Vote.Cruz + '<br />' + '<b>Kasich -- </b>' + Vote.Kasich
     				: 'Float over a County'); };

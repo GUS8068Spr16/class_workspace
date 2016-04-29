@@ -64,9 +64,9 @@
     			this.update();
     			return this._div};
     			
-    	info.update = function (Income)
-    			{this._div.innerHTML = '<h4>Per Capita Income</h4>' + (Income ?
-    				'<b>' + Income.County + '</b><br />' + Income.Income + ' Income '
+    	info.update = function (income)
+    			{this._div.innerHTML = '<h4>Per Capita Income</h4>' + (income ?
+    				'<b>' + name.income + '</b><br />' + name.income + ' income '
     				: 'Float over a County'); };
     	info.addTo(map);
 		
@@ -79,7 +79,7 @@
     				    '#54278f' ;	}
     			
     	function style(feature) { return {
-    				fillColor: getColor(feature.properties.Income), 
+    				fillColor: getColor(feature.properties.income), 
     				weight:2,
     				opacity: 1,
     				color:'gray',
@@ -127,7 +127,7 @@
     			onEachFeature: onEachFeature
     		}).addTo(map);
     		
-    	var legend = L.control({position: 'bottomright'});
+    	var legend = L.control({position: 'bottomleft'});
     	
     	legend.onAdd = function (map)
     			{

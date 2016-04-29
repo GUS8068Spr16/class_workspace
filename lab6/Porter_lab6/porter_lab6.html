@@ -108,9 +108,9 @@
 			return this._div;
 		};
 	
-		info.update = function (inc) {
+		info.update = function (Feature) {
 			this._div.innerHTML = '<h4>income</h4>' +  (inc ?
-				'<b>' + inc.name + '</b><br />' + inc.income + ' percent '
+				'<b>' + Feature.name + '</b><br />' + Feature.income + ' income '
 				: 'Float cursor over a county');
 		};
 	

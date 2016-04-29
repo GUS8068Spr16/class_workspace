@@ -3,13 +3,12 @@
 	<title>Per Capita Income in PA Counties</title>  
 				
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-	<!--stylesheet for Leaflet Map elements--> 
 	<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-	<!--Google Font defined in the CSS style sheet-->	
+	
 	
 
-	<!--Start CSS-->
+	
 	<style>
 		body {
 		background-color: silver
@@ -112,7 +111,7 @@
 	
 		info.update = function (inc) {
 			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (inc ?
-				'<b>' + inc.name + '</b><br />' + inc.income + ' percent '
+				'<b>' + inc.name + '</b><br />' + inc.income + ' income '
 				: 'Hover over a county');
 		};
 	
@@ -126,7 +125,7 @@
 					d > 40000 ? '#756bb1' :
     				    '#54278f' ;	}
 	
-		function style(feature) {
+		function style(Feature) {
 			return {
 				weight: 2,
 				opacity: 1,

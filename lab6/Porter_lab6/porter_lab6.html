@@ -21,7 +21,7 @@
 	
 		.info {
 			padding: 6px 8px;
-			font: 14px/16px Arial, Helvetica, sans-serif;
+			font: 12px/16px Arial, Helvetica, sans-serif;
 			background: black;
 			background: rgba(255,255,255,0.8);
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -78,11 +78,11 @@
    	.bindPopup('Fairhill Elementary School').addTo(hosp);
 		
 		
-		var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		var Attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-		var light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
+		var light   = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr});
 		var map = L.map('map', {
 			center: [40.8444034, -77.6937927],
 			zoom: 7,
@@ -109,19 +109,19 @@
 		};
 	
 		info.update = function (inc) {
-			this._div.innerHTML = '<h4>income</h4>' +  (inc ?
-				'<b>' + inc.name + '</b><br />' + inc.income + ' total '
+			this._div.innerHTML = '<h4>Per Capita Income</h4>' +  (inc ?
+				'<b>' + inc.name + '</b><br />' + inc.income + ' percent '
 				: 'Float cursor over a county');
 		};
 	
 		info.addTo(map);
 		
 		function getColor(income)
-    	                       { return income > 10000 ? '#f2f0f7' :
-					income > 15000 ? '#dadaeb' :
-					income > 25000 ? '#bcbddc' :
-					income > 35000 ? '#9e9ac8' :
-					income > 40000 ? '#756bb1' :
+    	                       { return income > 0 ? '#f2f0f7' :
+					income > 10000 ? '#dadaeb' :
+					income > 15000 ? '#bcbddc' :
+					income > 25000 ? '#9e9ac8' :
+					income > 35000 ? '#756bb1' :
     				                	 '#54278f' ;	}
 	
 		function style(feature) {

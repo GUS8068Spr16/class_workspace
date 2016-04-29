@@ -61,46 +61,46 @@
 	
 	<script>
 		
-		var hospitals = new L.LayerGroup();
+		var hosp = new L.LayerGroup();
 		
 	L.marker([39.94408, -75.208878])
-   	.bindPopup('Alexander Wilson Elementary School').addTo(hospitals);
+   	.bindPopup('Alexander Wilson Elementary School').addTo(hosp);
 	L.marker([39.989227, -75.169495])
-   	.bindPopup('Anna B. Pratt Elementary School').addTo(hospitals);
+   	.bindPopup('Anna B. Pratt Elementary School').addTo(hosp);
 	L.marker([39.941732, -75.226536])
-   	.bindPopup('Anna H. Shaw Middle School').addTo(hospitals);
+   	.bindPopup('Anna H. Shaw Middle School').addTo(hosp);
 	L.marker([39.979575, -75.110488])
-   	.bindPopup('Charles Carroll High School').addTo(hospitals);
+   	.bindPopup('Charles Carroll High School').addTo(hosp);
 	L.marker([39.898484, -75.245735])
-   	.bindPopup('Communications Technology School').addTo(hospitals);
+   	.bindPopup('Communications Technology School').addTo(hosp);
 	L.marker([39.925162, -75.160021])
-   	.bindPopup('Edward Bok Technical High School').addTo(hospitals);
+   	.bindPopup('Edward Bok Technical High School').addTo(hosp);
 	L.marker([39.994334, -75.142141])
-   	.bindPopup('Fairhill Elementary School').addTo(hospitals);
+   	.bindPopup('Fairhill Elementary School').addTo(hosp);
 		
 		
 		var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-		var pencil   = L.tileLayer(mbUrl, {id: 'mapbox.pencil', attribution: mbAttr});
+		var light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
 		var map = L.map('map', {
 			center: [40.8444034, -77.6937927],
 			zoom: 7,
-			layers: [pencil, hospitals]
+			layers: [light, hosp]
 		});
 	
 		var baseMaps = {
-    			"Basemap": pencil,
+    			"Basemap": light,
 		};
 	
 		var overlays = {
-			"hospitals": hospitals
+			"hospitals": hosp
 		};
 	
 		L.control.layers(baseMaps, overlays).addTo(map);
 		
-		// shows state info on hover
+		
 		var info = L.control();
 	
 		info.onAdd = function (map) {
@@ -131,7 +131,7 @@
 				opacity: 1,
 				color: 'white',
 				dashArray: '3',
-				fillOpacity: 0.7,
+				fillOpacity: 0.4,
 				fillColor: getColor(Feature.properties.income)
 			};
 		}

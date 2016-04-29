@@ -20,11 +20,10 @@
 	
 	<script>
 		
-		var hospitals = new L.LayerGroup
+	var hospitals = new L.LayerGroup();
 		
-		L.marker([39.94408, -75.208878]).addTo(map)
-   	.bindPopup('Alexander Wilson Elementary School');
-	
+	L.marker([39.94408, -75.208878]).addTo(map)
+   	.bindPopup('Alexander Wilson Elementary School').addTo(hospitals);
 	L.marker([39.989227, -75.169495]).addTo(map)
    	.bindPopup('Anna B. Pratt Elementary School').addTo(hospitals);
 	L.marker([39.941732, -75.226536]).addTo(map)
@@ -43,8 +42,9 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
 		
-		var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr});
+	var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr});
 	var dark = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
+    
     var map = L.map('map', {center: [40.917946, -77.552847],
     				zoom: 6,
     				layers: [light, dark, hospitals]});

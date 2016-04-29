@@ -18,7 +18,8 @@
   		font-weight: bold;
   		color: #ef3b2c;
   	}
-  		
+  	h5 { color:#084594;
+  	}	
   	#map {height: 80%;
   		width: 80%;
   	}
@@ -106,11 +107,11 @@
     			return this._div};
     			
     	info.update = function (Vote)
-    			{this._div.innerHTML = '<h4>Votes per County</h4>' + (Vote ?
-    				'<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' -- Total' + '<br />' + '<b>Sanders -- </b>' +
+    			{this._div.innerHTML = '<h4>Votes per County</h4>' + ('<h5> Vote ?
+    				 '<b>' + Vote.County + </b><br />' + Vote.VoteTotal + ' -- Total' + '<br />' + '<b>Sanders -- </b>' +
     				Vote.Bernie + '<br />' + '<b>Clinton -- </b>' + Vote.Hillary + '<br />' + '<b>Trump -- </b>' +
-    				Vote.Trump + '<br />' + '<b>Cruz -- </b>' +	Vote.Cruz + '<br />' + '<b>Kasich -- </b>' + Vote.Kasich
-    				: 'Float over a County'); };
+    				Vote.Trump + '<br />' + '<b>Cruz -- </b>' +	Vote.Cruz + '<br />' + '<b>Kasich -- </b>' + Vote.Kasich 
+    				: 'Float over a County' </h5>'); };
     	info.addTo(map);
     	
     	//Chlorpleths//

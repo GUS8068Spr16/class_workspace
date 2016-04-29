@@ -112,7 +112,7 @@
 		info.update = function (inc) {
 			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (inc ?
 				'<b>' + inc.name + '</b><br />' + inc.income + ' income '
-				: 'Hover over a county');
+				: 'Float over a county');
 		};
 	
 		info.addTo(map);
@@ -125,14 +125,14 @@
 					d > 40000 ? '#756bb1' :
     				                    '#54278f' ;	}
 	
-		function style(Feature) {
+		function style(feature) {
 			return {
 				weight: 2,
 				opacity: 1,
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.4,
-				fillColor: getColor(Feature.properties.income)
+				fillColor: getColor(feature.properties.income)
 			};
 		}
 		
@@ -150,7 +150,7 @@
 			layer.bringToFront();
 		}
 	
-		info.update(layer.Feature.properties);
+		info.update(layer.feature.properties);
 	}
 	
 		var pacounties;
@@ -164,7 +164,7 @@
 			map.fitBounds(e.target.getBounds());
 		}
 	
-		function onEachFeature(Feature, layer) {
+		function onEachFeature(feature, layer) {
 			layer.on({
 				mouseover: highlightFeature,
 				mouseout: resetHighlight,
@@ -172,7 +172,7 @@
 			});
 		}
 	
-		geojson = L.geoJson(pacounties, {
+		geojson = L.geoJson(pacounties.js, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);

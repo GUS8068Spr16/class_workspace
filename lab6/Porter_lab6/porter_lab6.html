@@ -63,9 +63,9 @@
     			this.update();
     			return this._div};
     			
-    	info.update = function (income)
-    			{this._div.innerHTML = '<h4>Per Capita Income</h4>' + (income ?
-    				'<b>' + income.name + '</b><br />' + income.name + ' income '
+    	info.update = function (INC)
+    			{this._div.innerHTML = '<h4>Per Capita Income</h4>' + (INC ?
+    				'<b>' + INC.name + '</b><br />' + INC.name + ' income '
     				: 'Hover over a County'); };
     	info.addTo(map);
 		

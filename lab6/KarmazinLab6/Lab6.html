@@ -108,9 +108,11 @@
     			
     	info.update = function (Vote)
     			{this._div.innerHTML = '<h4>Votes per County</h4>' + (Vote ?
-    				 '<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' -- Total' + '<br />' + '<b>Sanders -- </b>' +
+    				 '<b>' + Vote.County + '</b><br />' + Vote.VoteTotal + ' -- Total' + '<br />' + '<br />' + '<b>Sanders -- </b>' +
     				Vote.Bernie + '<br />' + '<b>Clinton -- </b>' + Vote.Hillary + '<br />' + '<b>Trump -- </b>' +
-    				Vote.Trump + '<br />' + '<b>Cruz -- </b>' +	Vote.Cruz + '<br />' + '<b>Kasich -- </b>' + Vote.Kasich 
+    				Vote.Trump + '<br />' + '<b>Cruz -- </b>' +	Vote.Cruz + '<br />' + '<b>Kasich -- </b>' + Vote.Kasich
+    				+ '<br />' + '<br />' + '<b>Winner</b>' + '<br />' + '<b>Dem -- </b>' + Vote.DemWin + '<br />' 
+    				+ '<b>Rep -- </b>' + Vote.RepWin
     				: 'Float over a County') ; };
     	info.addTo(map);
     	

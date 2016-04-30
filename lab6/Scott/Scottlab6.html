@@ -86,7 +86,7 @@
 			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
 	
 	var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr}),
-	var dark = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
+	    dark = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
     var map = L.map('map', {center: [40.917956, -77.552434],
     				zoom: 7,
     				layers: [light, dark, cities]});

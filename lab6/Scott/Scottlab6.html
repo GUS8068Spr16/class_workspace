@@ -85,18 +85,18 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
 	
-	var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr}),
-	    dark = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
-    var map = L.map('map', {center: [40.917956, -77.552434],
+	var light = L.tileLayer(Url, {id: 'mapbox.dark', attribution: Attr});
+	
+    	var map = L.map('map', {center: [40.917956, -77.552434],
     				zoom: 7,
-    				layers: [light, dark, cities]});
+    				layers: [dark, cities]
+    	});
     		
-    		
-    		
-    var baseMaps = {'Light' : light,
-    			'Dark': dark};
+    	var baseMaps = {
+    		    Dark': dark,
+	};
     				
-    var overlay = {'Major Cities': cities};
+    	var overlay = {'Major Cities': cities};
     
     L.control.layers(baseMaps, overlay).addTo(map);
     

@@ -109,7 +109,7 @@
 	
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (props ?
-				'<b>' + props.NAME + '</b><br />' + props.POVRATE + ' percent '
+				'<b>' + props.NAME + '</b><br />' + props.Black_per + 'percent '
 				: 'Hover over a county');
 		};
 	
@@ -122,7 +122,7 @@
 		               d > 6.91  ? '#fd8d3c' :
 			       d > 4.15  ? '#fecc5c' :
 			       d > 1.68  ? '#ffffb2' :
-					  '#FFEDA0';
+			       d > 0	 ? '#FFEDA0';
 		}
 	
 		function style(feature) {
@@ -132,7 +132,7 @@
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.POVRATE)
+				fillColor: getColor(feature.properties.Black_per)
 			};
 		}
 		

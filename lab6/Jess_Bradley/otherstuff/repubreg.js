@@ -10,7 +10,7 @@ var repubregister = {
 { "type": "Feature", "properties": { "REPUBREGISTERED": "21,343", "COUNTY": "Bradford", }, "geometry": { "type": "Point", "coordinates": [ -76.633957, 41.774835 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "180,171", "COUNTY": "Bucks", }, "geometry": { "type": "Point", "coordinates": [ -75.136914, 40.289217 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "65,247", "COUNTY": "Butler", }, "geometry": { "type": "Point", "coordinates": [ -79.935840, 40.874094 ] } },
-{ "type": "Feature", "properties": { "REPUBREGISTERED": "29,965", "COUNTY": "Cambria", }, "geometry": { "type": "Point", "coordinates": [ -78.740698, 40.46.8480 ] } },
+{ "type": "Feature", "properties": { "REPUBREGISTERED": "29,965", "COUNTY": "Cambria", }, "geometry": { "type": "Point", "coordinates": [ -78.740698, 40.468480 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "1,636", "COUNTY": "Cameron", }, "geometry": { "type": "Point", "coordinates": [ -78.115684, 41.379111 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "16,260", "COUNTY": "Carbon", }, "geometry": { "type": "Point", "coordinates": [ -75.746778, 40.864877 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "43,072", "COUNTY": "Centre", }, "geometry": { "type": "Point", "coordinates": [ -77.782294, 40.894024 ] } },

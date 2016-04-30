@@ -125,7 +125,7 @@
 	
 		info.update = function (inc) {
 			this._div.innerHTML = '<h4>Per Capita Income</h4>' +  (inc ?
-				'<b>' + inc.name + '</b><br />' + inc.income 
+				'<b>' + inc.features.properties.name + '</b><br />' + inc.features.properties.income 
 				: 'Float cursor over a county');
 		};
 	

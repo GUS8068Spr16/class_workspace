@@ -67,3 +67,4 @@ var repubregister = {
 { "type": "Feature", "properties": { "REPUBREGISTERED": "98,956", "COUNTY": "Westmoreland", }, "geometry": { "type": "Point", "coordinates": [ -79.558034, 40.287520 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "8,940", "COUNTY": "Wyoming", }, "geometry": { "type": "Point", "coordinates": [ -75.952647, 41.533934 ] } },
 { "type": "Feature", "properties": { "REPUBREGISTERED": "137,889", "COUNTY": "York", }, "geometry": { "type": "Point", "coordinates": [ -76.730204, 39.952726 ] } },
+]}

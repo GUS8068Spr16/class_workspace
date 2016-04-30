@@ -93,7 +93,7 @@
 		};
 	
 		var overlays = {
-			"County percentage": org
+			"County_percentage": org
 		};
 	
 		L.control.layers(baseMaps, overlays).addTo(map);
@@ -115,7 +115,7 @@
 	
 		info.addTo(map);
 		
-		// get color depending on poverty rate value
+		// get color depending on African American rate value
 		function getColor(d) {
 			return d > 42.39 ? '#bd0026' :
 			       d > 15.77  ? '#f03b20' :

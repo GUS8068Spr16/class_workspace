@@ -59,7 +59,7 @@
 	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 	<!--Leaflet JavaScript file-->
 	
-	<script type="text/javascript" src="counties.js"></script>
+	<script type="text/javascript" src="paed.js"></script>
 	
 	<script>
 		// Add basemap
@@ -108,7 +108,7 @@
 	
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (props ?
-				'<b>' + props.NAME + '</b><br />' + props.POVRATE + ' percent '
+				'<b>' + props.COUNTY_NAM + '</b><br />' + props.Total_1 + props.Bachelors
 				: 'Hover over a county');
 		};
 	
@@ -131,7 +131,7 @@
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.POVRATE)
+				fillColor: getColor(feature.properties.Total_1)
 			};
 		}
 		
@@ -152,7 +152,7 @@
 		info.update(layer.feature.properties);
 	}
 	
-		var counties_id;
+		var paed;
 		
 		function resetHighlight(e) {
 		geojson.resetStyle(e.target);
@@ -171,7 +171,7 @@
 			});
 		}
 	
-		geojson = L.geoJson(counties_id, {
+		geojson = L.geoJson(paed, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);

@@ -110,19 +110,19 @@
 	
 		info.update = function (inc) {
 			this._div.innerHTML = '<h4>Per Capita Income</h4>' +  (inc ?
-				'<b>' + inc.name + '</b><br />' + inc.income + ' percent '
+				'<b>' + inc.name + '</b><br />' + inc.income + 
 				: 'Float cursor over a county');
 		};
 	
 		info.addTo(map);
 		
 		function getColor(income)
-    	                       { return income > 10000 ? 'f2f0f7' :
-					income > 15000 ? 'dadaeb' :
-					income > 25000 ? 'bcbddc' :
-					income > 35000 ? '9e9ac8' :
-					income > 45000 ? '756bb1' :
-    				                	 '54278f' ;	}
+    	                       { return income > 10000 ? '#f2f0f7' :
+					income > 15000 ? '#dadaeb' :
+					income > 25000 ? '#bcbddc' :
+					income > 35000 ? '#9e9ac8' :
+					income > 45000 ? '#756bb1' :
+    				                	 '#54278f' ;	}
 	
 		function style(feature) {
 			return {

@@ -9,7 +9,6 @@
 	<!--Google Font defined in the CSS style sheet-->	
 	
 
-
 	<!--Start CSS-->
 	<style>
 		body {
@@ -48,12 +47,12 @@
 		}
 	</style>
 	<!--End CSS-->
-<link rel="icon" href="temple.png" type="image/png" sizes="16x16">
+<link rel="icon" href="face_reality_male.png" type="image/png" sizes="16x16">
 </head>
 <body> 
 <center>
 <font face="Oswald" size="400" color="#000000">Percent of African American in PA</font> 
-<br><font face="Oxygen" size="200" color="#000000">Marking Some Counties have more than 6.9 Percent African American in PA</font><br><br>
+<br><font face="Oxygen" size="200" color="#000000">Marking Some Counties have more than 6.9 Percent African American in PA.</font><br><br>
 		
 	<div id="map"></div>
 	
@@ -110,7 +109,7 @@
 	
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>PA African American rate</h4>' +  (props ?
-				'<b>' + props.NAME + '</b><br />' + props.Black_per + 'percent '
+				'<b>' + props.NAME + '</b><br />' + props.Black_per + ' percent '
 				: 'Hover over a county');
 		};
 	
@@ -122,8 +121,8 @@
 			       d > 15.77  ? '#f03b20' :
 		               d > 6.91  ? '#fd8d3c' :
 			       d > 4.15  ? '#fecc5c' :
-			       d > 1.68  ? '#ffffb2' :
-			       d > 0	 ? '#FFEDA0';
+			       d > 1.68   ? '#ffffb2' :
+					  '#FFEDA0';
 		}
 	
 		function style(feature) {

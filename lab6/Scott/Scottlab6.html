@@ -96,9 +96,11 @@
     		    "Dark": dark,
 	};
     				
-    	var overlay = {'Major Cities': cities};
+    	var overlays = {
+    		"Major Cities": cities
+    	};
     
-    L.control.layers(baseMaps, overlay).addTo(map);
+    L.control.layers(baseMaps, overlays).addTo(map);
     
     //County information//
     

@@ -1,0 +1,220 @@
+<html>
+<head>  
+	<title>Poverty Vs. Prisons</title>  
+				
+				
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	
+	
+
+	<!--Start CSS-->
+	<style>
+		body {
+		background-color: #012d5e
+		}
+		p1{font-family:tahoma; font-size:32px;
+                 }
+		p2{font-family:verdana; font-size:20px;
+		}
+		#map {
+			width: 1200px;
+			height: 600px;
+		}
+	
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: black;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+	
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+	</style>
+	<!--End CSS-->
+<link rel="icon" href="temple.png" type="image/png" sizes="16x16">
+</head>
+<body> 
+<center>
+<p1><font color="#b9daff">Poverty Vs. Prisons</font></p1>
+<br>
+<p2><font color="#b9daff">This map shows the correlation between county-wide poverty rates and prisons in the state of Pennsylvania, focusing on Department of Corrections state correctional institutions (SCI).</font></p2>
+<br>
+<br>
+
+		
+	<div id="map"></div>
+	
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<!--Leaflet JavaScript file-->
+	
+	<script type="text/javascript" src="counties_id.js"></script>
+	
+	<script>
+		// Add basemap
+		var pris = new L.LayerGroup();
+		L.marker([41.878579, -80.363301]).bindPopup('SCI Albion').addTo(pris),
+		L.marker([40.859101, -77.778086]).bindPopup('SCI Benner Township').addTo(pris);
+	        L.marker([41.798755, -80.056855]).bindPopup('SCI Cambridge Springs').addTo(pris),
+		L.marker([40.217611, -76.927164]).bindPopup('SCI Camp Hill').addTo(pris);
+		L.marker([39.851171, -75.351525]).bindPopup('SCI Chester').addTo(pris),
+		L.marker([40.806081, -76.559856]).bindPopup('SCI Coal Township').addTo(pris);
+		L.marker([41.281540, -76.013891]).bindPopup('SCI Dallas').addTo(pris),
+		L.marker([39.998193, -79.986754]).bindPopup('SCI Fayette').addTo(pris);
+		L.marker([41.481195, -79.100390]).bindPopup('SCI Forest').addTo(pris),
+		L.marker([40.771094, -76.208277]).bindPopup('SCI Frackville').addTo(pris);
+		L.marker([40.233199, -75.433573]).bindPopup('SCI Graterford').addTo(pris),
+		L.marker([39.906233, -80.136788]).bindPopup('SCI Greene').addTo(pris);
+		L.marker([40.812289, -78.356444]).bindPopup('SCI Houtzdale').addTo(pris),
+		L.marker([40.491224, -78.028565]).bindPopup('SCI Huntingdon').addTo(pris);
+		L.marker([40.002699, -79.042973]).bindPopup('SCI Laurel Highlands').addTo(pris),
+		L.marker([40.791079, -76.177837]).bindPopup('SCI Mahanoy').addTo(pris);
+		L.marker([41.206989, -80.220400]).bindPopup('SCI Mercer').addTo(pris),
+		L.marker([41.202463, -76.825471]).bindPopup('SCI Muncy').addTo(pris);
+		L.marker([40.647642, -79.099920]).bindPopup('SCI Pine Grove').addTo(pris);
+		L.marker([40.469700, -80.040041]).bindPopup('SCI Pittsburgh').addTo(pris);
+		L.marker([41.185477, -78.144325]).bindPopup('Quehanna Boot Camp').addTo(pris);
+		L.marker([41.187739, -76.081863]).bindPopup('SCI Retreat').addTo(pris);	
+	var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+		var pencil   = L.tileLayer(mbUrl, {id: 'mapbox.pencil', attribution: mbAttr});
+		var map = L.map('map', {
+			center: [40.8444034, -77.6937927],
+			zoom: 7.5,
+			layers: [pencil, pris]
+		});
+	
+		var baseMaps = {
+    			"Basemap": pencil,
+		};
+	
+		var overlays = {
+			"Prisons": pris
+		};
+	
+		L.control.layers(baseMaps, overlays).addTo(map);
+		
+		// shows county info on hover
+		var info = L.control();
+	
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+	
+		info.update = function (props) {
+			this._div.innerHTML = '<h4>PA Poverty Rate</h4>' +  (props ?
+				'<b>' + props.NAME + '</b><br />' + props.POVRATE + ' percent '
+				: 'Hover over a county');
+		};
+	
+		info.addTo(map);
+		
+		// get color depending on poverty rate value
+		function getColor(d) {
+			return d > 17.2 ? '#08519c' :
+			       d > 14.5  ? '#3182bd' :
+		               d > 11.8  ? '#6baed6' :
+			       d > 8.9  ? '#9ecae1' :
+			       d > 5.9   ? '#c6dbef' :
+					  '#eff3ff';
+		}	
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.POVRATE)
+			};
+		}
+		
+		function highlightFeature(e) {
+			var layer = e.target;
+	
+			layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+	
+		if (!L.Browser.ie && !L.Browser.opera) {
+			layer.bringToFront();
+		}
+	
+		info.update(layer.feature.properties);
+	}
+	
+		var counties_id;
+		
+		function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+	
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+	
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+	
+		geojson = L.geoJson(counties_id, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+			
+		var legend = L.control({position: 'bottomright'});
+	
+		legend.onAdd = function (map) {
+	
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [5.9, 8.9, 11.8, 14.5, 17.2],
+				labels = [],
+				from, to;
+	
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+	
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+	
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+	
+	legend.addTo(map);
+		
+</script>
+</body>
+</html>

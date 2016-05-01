@@ -146,15 +146,7 @@
 	
 		info.addTo(map);
 		
-		// get color depending on African American rate value
-		function getColor(d) {
-			return d > 42.39 ? '#bd0026' :
-			       d > 15.77  ? '#f03b20' :
-		               d > 6.91  ? '#fd8d3c' :
-			       d > 4.15  ? '#fecc5c' :
-			       d > 1.68   ? '#ffffb2' :
-					  '#FFEDA0';
-		}
+	
 	
 		function style(feature) {
 			return {
@@ -195,12 +187,6 @@
 			map.fitBounds(e.target.getBounds());
 		}
 	
-		function onEachFeature(feature, layer) {
-			layer.on({
-				mouseover: highlightFeature,
-				mouseout: resetHighlight,
-				click: zoomToFeature
-			});
 		}
 		var style1 = {
 			fill: true,
@@ -274,10 +260,7 @@
 	
 		legend.onAdd = function (map) {
 	
-			var div = L.DomUtil.create('div', 'info legend'),
-				grades = [1.68, 4.15, 6.91, 15.77, 42.39],
-				labels = [],
-				from, to;
+		
 	
 			for (var i = 0; i < grades.length; i++) {
 				from = grades[i];

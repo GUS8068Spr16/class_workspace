@@ -62,18 +62,18 @@
 	
 	<script>
 		// Add basemap
-		var org = new L.LayerGroup();
-		L.marker([40.7982173, -77.8621024]).bindPopup('Pennsylvania State University - Main Campus').addTo(org),
-		L.marker([40.4443574, -79.963029]).bindPopup('University of Pittsburgh').addTo(org);
-		L.marker([39.980256,-75.1597361]).bindPopup('Temple University').addTo(org);
-		L.marker([39.9518725,-75.602443]).bindPopup('West Chester University').addTo(org),
-		L.marker([39.9982041, -76.357271]).bindPopup('Millersville University').addTo(org);
-		L.marker([40.0474841, -76.320107]).bindPopup('Franklin & Marshall College').addTo(org),
-		L.marker([39.8298521,-77.2496831]).bindPopup('Gettysburg College').addTo(org);
-		L.marker([40.4443304, -79.9470928]).bindPopup('Carnegie Mellon University').addTo(org),
-		L.marker([39.9522229, -75.1954077]).bindPopup('University of Pennsylvania').addTo(org);
-		L.marker([39.9566168, -75.1921381]).bindPopup('Drexel University').addTo(org),
-		L.marker([40.6169041, -79.160436]).bindPopup('Indiana University of Pennsylvania').addTo(org);
+		var colleges = new L.LayerGroup();
+		L.marker([40.7982173, -77.8621024]).bindPopup('Pennsylvania State University - Main Campus').addTo(colleges),
+		L.marker([40.4443574, -79.963029]).bindPopup('University of Pittsburgh').addTo(colleges);
+		L.marker([39.980256,-75.1597361]).bindPopup('Temple University').addTo(colleges);
+		L.marker([39.9518725,-75.602443]).bindPopup('West Chester University').addTo(colleges),
+		L.marker([39.9982041, -76.357271]).bindPopup('Millersville University').addTo(colleges);
+		L.marker([40.0474841, -76.320107]).bindPopup('Franklin & Marshall College').addTo(colleges),
+		L.marker([39.8298521,-77.2496831]).bindPopup('Gettysburg College').addTo(colleges);
+		L.marker([40.4443304, -79.9470928]).bindPopup('Carnegie Mellon University').addTo(colleges),
+		L.marker([39.9522229, -75.1954077]).bindPopup('University of Pennsylvania').addTo(colleges);
+		L.marker([39.9566168, -75.1921381]).bindPopup('Drexel University').addTo(colleges),
+		L.marker([40.6169041, -79.160436]).bindPopup('Indiana University of Pennsylvania').addTo(colleges);
 		var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -82,7 +82,7 @@
 		var map = L.map('map', {
 			center: [40.8444034, -77.6937927],
 			zoom: 8,
-			layers: [pencil, org]
+			layers: [pencil, colleges]
 		});
 	
 		var baseMaps = {
@@ -90,7 +90,7 @@
 		};
 	
 		var overlays = {
-			"Organizations": org
+			"Colleges": colleges
 		};
 	
 		L.control.layers(baseMaps, overlays).addTo(map);

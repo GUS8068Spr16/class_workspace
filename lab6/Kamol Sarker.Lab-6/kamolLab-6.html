@@ -81,7 +81,7 @@
 </head>
 <body> 
 <center>
-<font face="Oswald" size="400" color="#000000">Percent of African American in PA</font> 
+<font face="Oswald" size="400" color="#000000">Map for African American in PA</font> 
 <br><font face="Oxygen" size="200" color="#000000">Marking Some Counties have more than 6.9 Percent African American in PA.</font><br><br>
 	<section id="percents">
 	</section>
@@ -146,26 +146,7 @@
 	
 		info.addTo(map);
 		
-		// get color depending on African American rate value
-		function getColor(d) {
-			return d > 42.39 ? '#bd0026' :
-			       d > 15.77  ? '#f03b20' :
-		               d > 6.91  ? '#fd8d3c' :
-			       d > 4.15  ? '#fecc5c' :
-			       d > 1.68   ? '#ffffb2' :
-					  '#FFEDA0';
-		}
 	
-		function style(feature) {
-			return {
-				weight: 2,
-				opacity: 1,
-				color: 'white',
-				dashArray: '3',
-				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.Black_per)
-			};
-		}
 		
 		function highlightFeature(e) {
 			var layer = e.target;
@@ -184,7 +165,7 @@
 		info.update(layer.feature.properties);
 	}
 	
-		var counties_id;
+		var Black_per;
 		
 		function resetHighlight(e) {
 		geojson.resetStyle(e.target);

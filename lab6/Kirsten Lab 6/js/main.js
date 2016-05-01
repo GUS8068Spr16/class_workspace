@@ -194,6 +194,7 @@ var baseLayers = {
 };
 
 var overlays = {
+	"Counties": countyBase,
     "Conservation Lands": conservation,
 	"Trails" : trails
 };

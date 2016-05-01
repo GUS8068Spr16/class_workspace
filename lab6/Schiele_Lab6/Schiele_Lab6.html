@@ -11,7 +11,7 @@
 	
 	<style>
 		body {
-		background-color: silver
+		background-color: black
 		}
 		
 		#map {
@@ -114,12 +114,12 @@
 		info.addTo(map);
 		
 		function getColor(d)
-    	                       { return d > 0 ? '#f2f0f7' :
-					d > 5 ? '#dadaeb' :
-					d > 10 ? '#bcbddc' :
-					d > 15 ? '#9e9ac8' :
-					d > 20 ? '#756bb1' :
-    				                    '#54278f' ;	}
+    	                       { return d > 0 ? 'FED976' :
+					d > 5 ? '#FEB24C' :
+					d > 10 ? '#FD8D3C' :
+					d > 15 ? '#FC4E2A' :
+					d > 20 ? '#800026' :
+    				                    '#800026' ;	}
 	
 		function style(feature) {
 			return {
@@ -137,7 +137,7 @@
 	
 			layer.setStyle({
 			weight: 5,
-			color: '#666',
+			color: 'grey',
 			dashArray: '',
 			fillOpacity: 0.5
 		});

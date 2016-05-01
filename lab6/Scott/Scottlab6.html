@@ -115,12 +115,12 @@
 		
 		// get color depending on poverty rate value
 		function getColor(d) {
-			return d > 17.2 ? '#fef0d9' :
-			       d > 14.5  ? '#fdd49e' :
-		               d > 11.8  ? '#fdbb84' :
-			       d > 8.9  ? '#fc8d59' :
-			       d > 5.9   ? '##e34a33' :
-					  '#b30000';
+			return d > 17.2 ? '#b30000' :
+			       d > 14.5  ? '#e34a33' :
+		               d > 11.8  ? '#fc8d59' :
+			       d > 8.9  ? '#fdbb84' :
+			       d > 5.9   ? '#fdd49e' :
+					  '#fef0d9';
 		}
 	
 		function style(feature) {

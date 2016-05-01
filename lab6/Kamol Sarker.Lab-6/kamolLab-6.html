@@ -9,7 +9,6 @@
 	<!--Google Font defined in the CSS style sheet-->	
 	
 
-	<!--Start CSS-->
 	<style>
 		body {
 		background-color: white
@@ -76,7 +75,7 @@
 			float: left;
 		}
 	</style>
-	<!--End CSS-->
+	
 <link rel="icon" href="face_reality_male.png" type="image/png" sizes="16x16">
 </head>
 <body> 
@@ -93,7 +92,7 @@
 	<script type="text/javascript" src="black_per.js"></script>
 	
 	<script>
-		// Add basemap
+		
 		var org = new L.LayerGroup();
 		L.marker([40.4689204, -79.9809196]).bindPopup('Allegheny County, 12.9% African American').addTo(org),
 		L.marker([40.4223212, -77.9685836]).bindPopup('Huntingdon County, 5.097% African American').addTo(org);
@@ -129,7 +128,7 @@
 	
 		L.control.layers(baseMaps, overlays).addTo(map);
 		
-		// shows county info on hover
+		
 		var info = L.control();
 	
 		info.onAdd = function (map) {

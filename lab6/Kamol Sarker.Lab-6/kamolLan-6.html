@@ -51,7 +51,7 @@
 </head>
 <body> 
 <center>
-<font face="Oswald" size="400" color="#000000">Percent of African American in PA</font> 
+<font face="Oswald" size="400" color="#000000">Population of African American in PA</font> 
 <br><font face="Oxygen" size="200" color="#000000">Marking Some Counties have more than 6.9 Percent African American in PA.</font><br><br>
 		
 	<div id="map"></div>
@@ -108,14 +108,14 @@
 		};
 	
 		info.update = function (props) {
-			this._div.innerHTML = '<h4>PA African American rate</h4>' +  (props ?
+			this._div.innerHTML = '<h4>PA African American Population</h4>' +  (props ?
 				'<b>' + props.NAME10 + '</b><br />' + props.Black + ' value '
 				: 'Hover over a county');
 		};
 	
 		info.addTo(map);
 		
-		// get color depending on African American rate value
+		// get color depending on African American population value
 		function getColor(d) {
 			return d > 159058 ? '#bd0026':
 			       d > 79981 ? '#f03b20':
@@ -132,7 +132,7 @@
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.Black_per)
+				fillColor: getColor(feature.properties.Black)
 			};
 		}
 		
@@ -172,7 +172,7 @@
 			});
 		}
 	
-		geojson = L.geoJson(black_per, {
+		geojson = L.geoJson(black, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);

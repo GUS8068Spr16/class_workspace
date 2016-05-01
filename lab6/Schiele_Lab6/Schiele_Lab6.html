@@ -1,74 +1,69 @@
 <html>
-  <head>
-	<title>Alcohol Related Auto-FatalitiesMap</title>	  	
-    	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    	
-  </head>
-  
-  <style>
-  	body { 	background-color: #4292c6;
-  	}
-  	p1 {font-family: Verdana;
-  	font-size: 12px;
-  	color: #084594 ;
-  	}
-  	
-  	h1 { font-family: Verdana ;
-  		font-size:55px;
-  		font-weight: bold;
-  		color: #084594;
-  	}
-  	h2 { font-family: Verdana ;
-  		font-size: 30px;
-  		font-weight: bold;
-  		color: #99000d;
-  	}
-  	
-  	#map {height: 70%;
-  		width: 70%;
-  	}
-  	
-  	.info {
-		padding: 6px 8px;
-		font: 14px/16px Arial, Helvetica, sans-serif;
-		background: black;
-		background: white;
-		box-shadow: 0 0 15px rgba(0,0,0,0.2);
-		border-radius: 5px;
-	}
-	.info h4 {font-size: 18px;
-		margin: 0 0 5px;
-		color: black;
-		}
-	.legend {
-		text-align: left;
-		line-height: 18px;
-		color: #555;
-		}
-	.legend i {
-		width: 18px;
-		height: 18px;
-		float: left;
-		margin-right: 8px;
-		opacity: 0.7;
-		}
+<head>  
+	<title>Alcohol Related Auto-Fatalities</title>  
+				
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 	
-  </style>
-  
-  <body>
-    <center>
-      <h1>A Look at PA Counties</h1>
-      <h2> This map visualizes alcohol-related deaths in motor vehicles by Pennslyvania county and counties with the highest number of alcohol retailers</h2>
-      <div id='map'></div>
-    </center>
+	
 
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-	<script type="text/javascript" src="SchieleCounties.js"></script>
 	
-    
-    <script>
-   
-    var cities = new L.LayerGroup();
+	<style>
+		body {
+		background-color: silver
+		}
+		
+		#map {
+			width: 90%;
+			height: 80%;
+		}
+	
+		.info {
+			padding: 6px 8px;
+			font: 12px/16px Arial, Helvetica, sans-serif;
+			background: black;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 3px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+	
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+	</style>
+	
+</head>
+<body> 
+<center>
+<font face="Oswald" size="400" color="#000000">Per Capita income in PA counties</font> 
+<br><font face="Oxygen" size="200" color="#000000">This map shows per capita income in PA counties</font><br><br>
+		
+	<div id="map"></div>
+	
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	
+	<script type="text/javascript" src="Schieleounties.js"></script>
+	
+	<script>
+		
+		var hosp = new L.LayerGroup();
+		
+	
+    var highestcounties = new L.LayerGroup();
     L.marker([40.483239, -79.965105]).bindPopup('<b>Allegheny - </b> Total Retailers: 2,137').addTo(cities);
     L.marker([40.007728, -75.133916]).bindPopup('<b>Philadelphia - </b> Total Retailers: 2,060').addTo(cities);
     L.marker([41.284296, -75.894947]).bindPopup('<b>Luzerne - </b> Total Retailers: 727').addTo(cities);
@@ -78,118 +73,130 @@
     L.marker([39.845209, -75.370722]).bindPopup('<b>Chester - </b> Total Retailers: 409').addTo(cities);
     L.marker([40.198081, -75.336804]).bindPopup('<b>Montgomery - </b> Total Retailers: 724').addTo(cities);
     L.marker([40.007446, -76.724687]).bindPopup('<b>York - </b> Total Retailers: 486').addTo(cities);
-    
-    var Attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		
+		
+		var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			Url = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiamthcm1hejYiLCJhIjoiY2ltM3ZjNTdjMDAwNXR6bTZ1NXU4M3A3NyJ9.b-8StdJWFpLK7LrLLermJg';
+			mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+		var light   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr});
+		var map = L.map('map', {
+			center: [40.043634, -76.306530],
+			zoom: 7,
+			layers: [light, Total Alcohol Retailers]
+		});
 	
-	var light = L.tileLayer(Url, {id: 'mapbox.light', attribution: Attr});
-    var map = L.map('map', {center: [40.917956, -77.552434],
-    				zoom: 7,
-    				layers: [light, dark, cities]});
-    				
-    var baseMaps = {'Light' : light,
-    			'Dark': dark};
-    				
-    var overlay = {'Major Cities': cities};
-    
-    L.control.layers(baseMaps, overlay).addTo(map);
-    
-    //County information//
-    
-    var info = L.control();
-    	info.onAdd = function (map)
-    			{this._div = L.DomUtil.create('div', 'info');
-    			this.update();
-    			return this._div};
-    			
-info.update = function (props) {
-this._div.innerHTML = '<h4>PA Total Alcohol-Related Auto Fatalities</h4>' +  (props ?
-	'<b>' + props.NAME + '</b><br />' + props.Total_Deat + ' percent '
-: 'Hover over a state');
-};
-
-    	info.addTo(map);
-    	
-    	//Chlorpleths//
-    	
-    	function getColor(d)
-    		{ return d > 66836 ? '#54278f' :
-    			d > 28846 ? '#756bb1' :
-    			d > 14304 ? '#9e9ac8' :
-    			d > 9259 ? '#cbc9e2' :
-    				    '#f2f0f7';}
-    			
-    	function style(feature) { return {
-    				fillColor: getColor(feature.properties.VoteTotal), 
-    				weight:2,
-    				opacity: 1,
-    				color:'gray',
-    				dashArray: '2',
-    				fillOpacity:0.8,
-    				};} ;
-    				
-    	function highlightFeature(e) {
-    		var layer = e.target;
-    		
-    		layer.setStyle({
-    			weight: 5,
-    			color: '#f7f4f9',
-    			dashArray: '',
-    			fillOpacity: 0.8
-    		});
-    		
-    		if (!L.Browser.ie && !L.Browser.opera) {
+		var baseMaps = {
+    			"Basemap": light,
+		};
+	
+		var overlays = {
+			"Total Alcohol Retailers": hosp
+		};
+	
+		L.control.layers(baseMaps, overlays).addTo(map);
+		
+		
+		var info = L.control();
+	
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+	
+		info.update = function (inc) {
+			this._div.innerHTML = '<h4>Total Deaths</h4>' +  (inc ?
+				'<b>' + inc.Name + '</b><br />' + inc.Total_Deat 
+				: 'Float cursor over a county');
+		};
+	
+		info.addTo(map);
+		
+		function getColor(d)
+    	                       { return d > 0 ? '#f2f0f7' :
+					d > 5 ? '#dadaeb' :
+					d > 10 ? '#bcbddc' :
+					d > 15 ? '#9e9ac8' :
+					d > 20 ? '#756bb1' :
+    				                    '#54278f' ;	}
+	
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '4',
+				fillOpacity: 0.4,
+				fillColor: getColor(feature.properties.income)
+			};
+		}
+		
+		function highlightFeature(e) {
+			var layer = e.target;
+	
+			layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.5
+		});
+	
+		if (!L.Browser.ie && !L.Browser.opera) {
 			layer.bringToFront();
-    		}
-    		
-    		info.update(layer.feature.properties);
-    		}
-    		
-    		var counties;
-    		
-    		function resetHighlight(e) {
-    			geojson.resetStyle(e.target);
-    			info.update();
-    		}
-    		
-    		function zoomToFeature(e) {
-    			map.fitBounds(e.target.getBounds());
-    		}
-    		
-    		function onEachFeature(feature, layer) {
-    			layer.on({mouseover: highlightFeature,
-    				mouseout: resetHighlight,
-    				click: zoomToFeature
-    			});
-    		}
-    		
-    		geojson = L.geoJson(counties, {
-    			style: style,
-    			onEachFeature: onEachFeature
-    		}).addTo(map);
-    		
-    	var legend = L.control({position: 'bottomright'});
-    	
-    	legend.onAdd = function (map)
-    			{
-    			var div = L.DomUtil.create('div', 'info legend'),
-    			grades = [0, 9259, 14304, 28846, 66836],
-    			labels = [];
-    			
-    	for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    	}
-    	return div;
-	};
-legend.addTo(map);
-	    
-	  
+		}
 	
-    </script>
-  </body>
-  
+		info.update(layer.feature.properties);
+	}
+	
+		var SchieleCounties;
+		
+		function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+	
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+	
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+	
+		geojson = L.geoJson(SchieleCounties, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+			
+		var legend = L.control({position: 'bottomleft'});
+	
+		legend.onAdd = function (map) {
+	
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [0, 5, 10, 15, 20],
+				labels = [],
+				from, to;
+	
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+	
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+	
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+	
+	legend.addTo(map);
+		
+</script>
+</body>
 </html>
